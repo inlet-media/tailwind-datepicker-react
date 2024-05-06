@@ -4,7 +4,7 @@
 
 # Tailwind-datepicker-react
 
-A Tailwindcss/Flowbite datepicker component built as a React component with types based on the [original datepicker from Flowbite](https://flowbite.com/docs/plugins/datepicker/). This component can also be used as a plugin using the [Flowbite React](https://github.com/themesberg/flowbite-react) library.
+A Tailwindcss datepicker component built as a React component with types based on the [original datepicker from Flowbite](https://flowbite.com/docs/plugins/datepicker/). This component can also be used as a plugin using the [Flowbite React](https://github.com/themesberg/flowbite-react) library.
 
 Date logic from [VanillaJS-datepicker](https://github.com/mymth/vanillajs-datepicker).
 

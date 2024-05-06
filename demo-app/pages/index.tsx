@@ -35,7 +35,14 @@ const Home: NextPage = () => {
 				<label htmlFor="date" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
 					Date
 				</label>
-				<DatePicker show={show} setShow={(state) => setShow(state)} options={options} classNames="absolute" />
+				<DatePicker
+					show={show}
+					setShow={setShow}
+					options={options}
+					classNames="absolute"
+					onChange={(date: Date) => console.log('onChange', { date })}
+					onClear={() => console.log('onClear')}
+				/>
 			</div>
 		</div>
 	)

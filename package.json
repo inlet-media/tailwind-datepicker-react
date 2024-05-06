@@ -1,7 +1,7 @@
 {
-	"name": "tailwind-datepicker-react",
-	"version": "1.4.3",
-	"description": "A tailwindcss/flowbite datepicker component built as a react component with types",
+	"name": "tailwind-basic-datepicker",
+	"version": "1.5.0",
+	"description": "A tailwindcss datepicker component built as a react component with types",
 	"main": "dist/index.js",
 	"types": "types/index.d.ts",
 	"files": [
@@ -14,42 +14,41 @@
 		"build:cjs": "swc ./src -d ./dist --only ./src/**/*.ts --config-file .swcrc",
 		"build:dts": "tsc --declaration --declarationMap --emitDeclarationOnly",
 		"build": "yarn build:cjs && yarn build:dts",
-		"dev": "./node_modules/.bin/nodemon"
+		"dev": "nodemon"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/OMikkel/tailwind-datepicker-react.git"
+		"url": "git+https://github.com/inlet-media/tailwind-datepicker-react.git"
 	},
 	"keywords": [
 		"tailwind",
 		"react",
-		"flowbite",
 		"nextjs",
 		"datepicker",
 		"dateselector",
 		"dateinput",
 		"date"
 	],
-	"author": "OMikkel",
+	"author": "Pat Cedrowski",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/OMikkel/tailwind-datepicker-react/issues"
+		"url": "https://github.com/inlet-media/tailwind-datepicker-react/issues"
 	},
-	"homepage": "https://github.com/OMikkel/tailwind-datepicker-react#readme",
+	"homepage": "https://github.com/inlet-media/tailwind-datepicker-react#readme",
 	"peerDependencies": {
-		"react": ">=17",
-		"react-dom": ">=17",
+		"react": ">=18",
+		"react-dom": ">=18",
 		"tailwindcss": ">=3"
 	},
 	"devDependencies": {
-		"@swc/cli": "^0.1.57",
-		"@swc/core": "^1.3.4",
-		"@types/react": ">=17",
-		"nodemon": "^2.0.22",
-		"react": ">=17",
-		"typescript": "^4.8.4"
+		"@swc/cli": "^0.3.12",
+		"@swc/core": "^1.5.3",
+		"@types/react": ">=18",
+		"nodemon": "^3.1.0",
+		"react": ">=18",
+		"typescript": "^5.4.5"
 	},
 	"dependencies": {
-		"tailwind-merge": "^1.6.1"
+		"tailwind-merge": "^2.3.0"
 	}
 }

@@ -11,6 +11,7 @@ interface IDatePickerContext {
 	setShow: (show: boolean) => void
 	selectedDate: Date
 	changeSelectedDate: (action: "prev" | "next" | "date" | "today", date: Date) => void
+	clearDate: () => void
 	showSelectedDate: boolean
 	setShowSelectedDate: Dispatch<SetStateAction<boolean>>
 	selectedMonth: number
@@ -23,13 +24,14 @@ export type Views = "days" | "months" | "years" | "decades"
 export const DatePickerContext = createContext<IDatePickerContext>({
 	options: defaultOptions,
 	view: "days",
-	setView: () => {},
+	setView: () => { },
 	show: false,
-	setShow: () => {},
+	setShow: () => { },
 	selectedDate: new Date(),
-	changeSelectedDate: () => {},
+	changeSelectedDate: () => { },
+	clearDate: () => { },
 	showSelectedDate: true,
-	setShowSelectedDate: () => {},
+	setShowSelectedDate: () => { },
 	selectedMonth: 0,
 	selectedYear: 0,
 	getFormattedDate: () => "",
@@ -39,12 +41,13 @@ interface IDatePickerProviderProps {
 	children: ReactElement
 	options?: IOptions
 	onChange?: (date: Date) => void
+	onClear?: () => void;
 	show: boolean
 	setShow: (show: boolean) => void
 	selectedDateState?: [Date, (date: Date) => void]
 }
 
-const DatePickerProvider = ({ children, options: customOptions, onChange, show, setShow, selectedDateState }: IDatePickerProviderProps) => {
+const DatePickerProvider = ({ children, options: customOptions, onChange, onClear, show, setShow, selectedDateState }: IDatePickerProviderProps) => {
 
 	const options = { ...defaultOptions, ...customOptions }
 	const [view, setView] = useState<Views>("days")
@@ -63,11 +66,19 @@ const DatePickerProvider = ({ children, options: customOptions, onChange, show, 
 		if (onChange) onChange(date)
 	}
 
+	const clearDate = () => {
+		if (onClear) onClear()
+		setSelectedDate(options?.defaultDate || new Date())
+		setShowSelectedDate(false)
+		if (options?.autoHide) setShow(false)
+
+	}
+
 	const getFormattedDate = (date: Date | number, formatOptions?: Intl.DateTimeFormatOptions | undefined | null) => formatDate(options?.language ? options?.language : "en", date, formatOptions)
 
 	return (
 		<DatePickerContext.Provider
-			value={{ options, view, setView, show, setShow, selectedDate, changeSelectedDate, showSelectedDate, setShowSelectedDate, selectedMonth, selectedYear, getFormattedDate }}
+			value={{ options, view, setView, show, setShow, selectedDate, changeSelectedDate, clearDate, showSelectedDate, setShowSelectedDate, selectedMonth, selectedYear, getFormattedDate }}
 		>
 			{children}
 		</DatePickerContext.Provider>
