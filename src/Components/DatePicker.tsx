@@ -20,6 +20,7 @@ const DatePicker = ({ value, children, options, onChange, classNames, show, setS
 	<div className={twMerge("w-full", classNames)}>
 		<DatePickerProvider options={options} onChange={onChange} show={show} setShow={setShow} selectedDateState={selectedDateState}>
 			<DatePickerMain value={value} options={options}>
+				{/* @ts-ignore */}
 				{children}
 			</DatePickerMain>
 		</DatePickerProvider>
