@@ -1,6 +1,6 @@
 {
 	"name": "tailwind-basic-datepicker",
-	"version": "1.5.3",
+	"version": "1.5.4",
 	"description": "A tailwindcss datepicker component built as a react component with types",
 	"main": "dist/index.js",
 	"types": "types/index.d.ts",
@@ -11,7 +11,7 @@
 		"README.md"
 	],
 	"scripts": {
-		"build:cjs": "swc src -d dist --only src/**/*.ts --config-file .swcrc",
+		"build:cjs": "swc src -d dist --config-file .swcrc",
 		"build:dts": "tsc --declaration --declarationMap --emitDeclarationOnly",
 		"build": "yarn build:cjs && yarn build:dts",
 		"dev": "nodemon"
